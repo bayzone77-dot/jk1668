@@ -4,44 +4,23 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>JK99 Promotion</title>
 
-  <!-- GOOGLE TAG MANAGER -->
+  <!-- META PIXEL -->
   <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({
-        'gtm.start':new Date().getTime(),
-        event:'gtm.js'
-      });
-
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-
-    })(window,document,'script',
-       'dataLayer','GTM-5HVJQB9B');
-  </script>
-  <!-- END GOOGLE TAG MANAGER -->
-
-
-  <!-- NEW META PIXEL -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {
+    !function(f,b,e,v,n,t,s) {
       if(f.fbq)return;
 
-      n=f.fbq=function(){
-        n.callMethod?
-          n.callMethod.apply(n,arguments):
-          n.queue.push(arguments)
+      n=f.fbq=function() {
+        n.callMethod
+          ? n.callMethod.apply(n,arguments)
+          : n.queue.push(arguments);
       };
 
       if(!f._fbq)f._fbq=n;
@@ -58,19 +37,19 @@
       s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s);
 
-    }(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '2198592467391882');
-
-    fbq(
-      'trackSingle',
-      '2198592467391882',
-      'PageView'
+    }(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
     );
 
+    fbq('init', '1156808386861735');
+
+    // Track landing page visits
+    fbq('track', 'PageView');
   </script>
-  <!-- END NEW META PIXEL -->
+  <!-- END META PIXEL -->
 
 
   <style>
@@ -94,6 +73,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      font-family: Arial, sans-serif;
     }
 
     /* VIDEO CONTAINER */
@@ -108,6 +89,7 @@
       align-items: center;
 
       overflow: hidden;
+      position: relative;
     }
 
     /* CLICKABLE VIDEO */
@@ -122,6 +104,9 @@
 
       cursor: pointer;
       text-decoration: none;
+      position: relative;
+
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* VIDEO DISPLAY */
@@ -141,6 +126,96 @@
       pointer-events: none;
     }
 
+    /* REGISTER BUTTON */
+
+    .register-button {
+      position: absolute;
+
+      bottom: 6%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 210px;
+
+      padding: 16px 28px;
+
+      border-radius: 50px;
+
+      background: linear-gradient(
+        135deg,
+        #ffe978,
+        #ffb900,
+        #ff8c00
+      );
+
+      border: 2px solid #fff2a0;
+
+      color: #172d12;
+
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 1px;
+
+      white-space: nowrap;
+
+      box-shadow:
+        0 0 15px rgba(255, 200, 0, 0.6),
+        0 0 35px rgba(255, 180, 0, 0.3),
+        0 5px 18px rgba(0, 0, 0, 0.3);
+
+      animation: buttonPulse 1.8s ease-in-out infinite;
+
+      pointer-events: none;
+    }
+
+    /* BUTTON ANIMATION */
+
+    @keyframes buttonPulse {
+
+      0%, 100% {
+        transform:
+          translateX(-50%)
+          translateY(0)
+          scale(1);
+
+        box-shadow:
+          0 0 15px rgba(255, 200, 0, 0.6),
+          0 0 30px rgba(255, 180, 0, 0.3);
+      }
+
+      50% {
+        transform:
+          translateX(-50%)
+          translateY(-5px)
+          scale(1.06);
+
+        box-shadow:
+          0 0 25px rgba(255, 220, 0, 0.9),
+          0 0 50px rgba(255, 180, 0, 0.5);
+      }
+    }
+
+    .video-link:hover .register-button {
+      background: linear-gradient(
+        135deg,
+        #fff7a6,
+        #ffd700,
+        #ffaa00
+      );
+    }
+
+    .video-link:focus-visible {
+      outline: 3px solid #ffd700;
+      outline-offset: -3px;
+    }
+
     /* MOBILE RESPONSIVE */
 
     @media (max-width: 768px) {
@@ -153,9 +228,26 @@
       .video-link video {
         max-width: 100%;
         max-height: 100dvh;
+
         object-fit: contain;
       }
 
+      .register-button {
+        bottom: 7%;
+
+        min-width: 190px;
+
+        padding: 14px 24px;
+
+        font-size: 16px;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .register-button {
+        animation: none;
+      }
     }
 
   </style>
@@ -165,28 +257,17 @@
 
 <body>
 
-  <!-- GOOGLE TAG MANAGER NOSCRIPT -->
-  <noscript>
-    <iframe
-      src="https://www.googletagmanager.com/ns.html?id=GTM-5HVJQB9B"
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
-  <!-- END GTM NOSCRIPT -->
-
-
   <!-- META PIXEL NOSCRIPT -->
+
   <noscript>
     <img
       height="1"
       width="1"
       style="display:none"
-      src="https://www.facebook.com/tr?id=2198592467391882&ev=PageView&noscript=1"
-      alt="">
+      src="https://www.facebook.com/tr?id=1156808386861735&amp;ev=PageView&amp;noscript=1"
+      alt=""
+    >
   </noscript>
-
 
   <!-- MAIN LANDING PAGE -->
 
@@ -204,14 +285,20 @@
       aria-label="Visit JK99 Registration"
     >
 
+      <!-- AUTOPLAY VIDEO -->
+
       <video
         id="heroVideo"
+
         autoplay
         muted
         loop
+
         playsinline
         webkit-playsinline
+
         preload="auto"
+
         disablepictureinpicture
         disableremoteplayback
       >
@@ -225,12 +312,122 @@
 
       </video>
 
+      <!-- ANIMATED REGISTER BUTTON -->
+
+      <span class="register-button">
+        REGISTER NOW &#10140;
+      </span>
+
     </a>
 
   </div>
 
   <!-- END LANDING PAGE -->
 
-</body>
 
+  <!-- VIDEO AUTOPLAY SCRIPT -->
+
+  <script>
+
+    const video = document.getElementById("heroVideo");
+
+    // Ensure muted playback
+    video.muted = true;
+    video.defaultMuted = true;
+
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+
+    function startVideo() {
+
+      if (!video.paused) return;
+
+      const playPromise = video.play();
+
+      if (
+        playPromise &&
+        typeof playPromise.catch === "function"
+      ) {
+        playPromise.catch(error => {
+          console.log(
+            "Video autoplay prevented:",
+            error
+          );
+        });
+      }
+
+    }
+
+    // Attempt autoplay on page load
+    if (document.readyState === "loading") {
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        startVideo
+      );
+
+    } else {
+
+      startVideo();
+
+    }
+
+    // Retry when video is ready
+    video.addEventListener(
+      "canplay",
+      startVideo,
+      { once: true }
+    );
+
+    // Resume video when visitor returns
+    document.addEventListener(
+      "visibilitychange",
+      function() {
+
+        if (!document.hidden && video.paused) {
+          startVideo();
+        }
+
+      }
+    );
+
+  </script>
+
+  <!-- END VIDEO AUTOPLAY SCRIPT -->
+
+
+  <!-- META PIXEL LEAD TRACKING -->
+
+  <script>
+
+    const registerLink =
+      document.getElementById("register-link");
+
+    registerLink.addEventListener(
+      "click",
+      function() {
+
+        if (typeof fbq === "function") {
+
+          // Track registration button/video clicks
+          fbq(
+            'trackSingle',
+            '1156808386861735',
+            'Lead',
+            {
+              content_name: 'JK99 Registration Click',
+              content_category: 'Landing Page'
+            }
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+  <!-- END LEAD TRACKING -->
+
+</body>
 </html>
